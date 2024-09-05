@@ -1,64 +1,75 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Will You Love Me?</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Do You Love Me?</title>
   <style>
     body {
-      background-color: #FFC9C9; /* light pink color */
-    }
-    .container {
+      font-family: 'Arial', sans-serif;
+      background-color: #FFC0CB; /* Light pink background */
+      margin: 0;
+      padding: 0;
       text-align: center;
-    }
-    .puppy-gif {
-      display: block;
-      margin: 20px auto;
-    }
-    .options {
       display: flex;
       justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
     }
-    .option {
-      padding: 10px;
-      border: 1px solid #ccc;
+    .question {
+      font-size: 2.5rem;
+      font-weight: bold;
+      margin-bottom: 20px;
+      color: #333; /* Dark text color */
+      position: absolute;
+      top: 40%; /* Adjusted to be above the center */
+    }
+    .buttons {
+      margin-top: 150px; /* Space between text and buttons */
+    }
+    button {
+      padding: 15px 30px;
+      font-size: 1.2rem;
+      border: none;
       border-radius: 5px;
       cursor: pointer;
+      transition: background-color 0.3s ease;
     }
-    .option:hover {
-      background-color: #f0f0f0;
+    #yesBtn {
+      background-color: #90EE90; /* Light green */
+      color: #fff;
+    }
+    #noBtn {
+      background-color: #FF6347; /* Tomato red */
+      color: #fff;
+    }
+    #yesBtn:hover {
+      background-color: #76c7c0; /* Slightly darker green on hover */
+    }
+    #noBtn:hover {
+      background-color: #e5534b; /* Slightly darker red on hover */
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Do you love me?</h1>
-    <img src="https://www.dropbox.com/scl/fi/ocjfhxxmtbug9orkjij2y/IMG20240903172620-2.jpg?rlkey=ihpv9032bfaq69gdz4axe2yp4&st=ab20pggx&dl=0" alt="Puppy waving hands" class="puppy-gif">
-    <div class="options">
-      <div class="option" id="yes">
-        Yes
-      </div>
-      <div class="option" id="no">
-        No
-      </div>
-    </div>
-    <script>
-      const yesButton = document.getElementById('yes');
-      yesButton.addEventListener('click', () => {
-        window.location.href = 'yes.html';
-      });
-      const noButton = document.getElementById('no');
-      let noButtonMoves = 0;
-      noButton.addEventListener('click', () => {
-        noButtonMoves++;
-        if (noButtonMoves % 2 === 0) {
-          noButton.style.transform = `translateX(${Math.random() * 200 - 100}px)`;
-        } else {
-          noButton.style.transform = `translateY(${Math.random() * 200 - 100}px)`;
-        }
-        setTimeout(() => {
-          noButton.style.transform = '';
-        }, 500);
-      });
-    </script>
+  <div class="question">Do you love me?</div>
+  <div class="buttons">
+    <button id="yesBtn" onclick="yesClick()">Yes</button>
+    <button id="noBtn" onclick="noClick()">No</button>
   </div>
+  <script>
+    const noBtn = document.getElementById('noBtn');
+    function noClick() {
+      const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
+      const y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
+      noBtn.style.position = 'absolute';
+      noBtn.style.left = x + 'px';
+      noBtn.style.top = y + 'px';
+    }
+    function yesClick() {
+      window.location.href = "secondpage.html";
+    }
+  </script>
 </body>
 </html>
