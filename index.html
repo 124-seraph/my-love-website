@@ -6,25 +6,31 @@
   <title>Do You Love Me?</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background-color: #FFC0CB;
-      text-align: center;
+      font-family: 'Arial', sans-serif;
+      background-color: #FFC0CB; /* Light pink background */
       margin: 0;
       padding: 0;
+      text-align: center;
     }
     .container {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-    }
-    .puppy {
-      display: block;
-      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      position: relative;
     }
     .question {
-      font-size: 2rem;
+      font-size: 2.5rem;
+      font-weight: bold;
       margin-bottom: 20px;
+      color: #333; /* Dark text color */
+    }
+    .puppy {
+      width: 300px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      margin-bottom: 30px;
     }
     .buttons {
       display: flex;
@@ -32,24 +38,33 @@
       gap: 20px;
     }
     button {
-      padding: 10px 20px;
+      padding: 15px 30px;
       font-size: 1.2rem;
       border: none;
-      cursor: pointer;
       border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
     }
     #yesBtn {
-      background-color: #90EE90;
+      background-color: #90EE90; /* Light green */
+      color: #fff;
     }
     #noBtn {
-      background-color: #FF6347;
+      background-color: #FF6347; /* Tomato red */
+      color: #fff;
+    }
+    #yesBtn:hover {
+      background-color: #76c7c0; /* Slightly darker green on hover */
+    }
+    #noBtn:hover {
+      background-color: #e5534b; /* Slightly darker red on hover */
     }
   </style>
 </head>
 <body>
   <div class="container">
     <div class="question">Do you love me?</div>
-    <img class="puppy" src="https://i.imgur.com/YOUR_DIRECT_GIF_URL.gif" alt="Waving Puppy GIF" width="300">
+    <img class="puppy" src="https://i.imgur.com/YOURDIRECTGIF1.gif" alt="Waving Puppy GIF">
     <div class="buttons">
       <button id="yesBtn" onclick="yesClick()">Yes</button>
       <button id="noBtn" onclick="noClick()">No</button>
